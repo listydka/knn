@@ -2,7 +2,7 @@ from collections import Counter
 import math
 import random
 from datetime import datetime
-from ee import X, y, knn 
+from ee import X, y, knn
 
 data = list(zip(X, y))
 random.shuffle(data)
@@ -21,16 +21,16 @@ def cv(Xs, ys, k=3):
         acc+=correct/len(list(test))
     return acc/5
 
-print("\nK TEST")
+print("\nТест на количество соседей")
 for k in [1,3,5,7,9]:
-    print("k=",k,"acc=",round(cv(X,y,k),2))
+    print("k=",k,"Точность=",round(cv(X,y,k),2))
 
-print("\nSIZE TEST")
+print("\nТест на размер выборки")
 for size in [10,20,40,80,len(X)]:
     Xs,ys=X[:size],y[:size]
-    print("size",size,"acc",round(cv(Xs,ys),2))
+    print("Размер",size,"Точность",round(cv(Xs,ys),2))
 
-print("\nNOISE TEST")
+print("\nТест шума")
 Xn=[[x[0]+random.uniform(-0.5,0.5),
      x[1]+random.uniform(-0.5,0.5)] for x in X]
-print("noise acc",round(cv(Xn,y),2))
+print("Точность с шумом",round(cv(Xn,y),2))
