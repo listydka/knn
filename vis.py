@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 def plot_data(X, y, test_point=None):
-    colors = {"Фрукт":"orange","Овощ":"green","Протеин":"blue"}
+    colors = {"Фрукт":"orange","Овощ":"green","Протеин":"blue","Напиток":"red"}
     for cl in set(y):
         xs = [X[i][0] for i in range(len(X)) if y[i]==cl]
         ys = [X[i][1] for i in range(len(X)) if y[i]==cl]
